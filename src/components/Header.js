@@ -1,19 +1,8 @@
 import React from 'react';
-import styles from './Header.css'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const divStyle = {
-  'background-color' :'#333'
-};
-
-const hoverStyle = {
-  '&:hover': { 
-    'color' : '#666'
-  } 
-}
-
-const TodayLink = styled(Link)`
+const NavigationLink = styled(Link)`
     display: block;
     color: white;
     text-align: center;
@@ -26,9 +15,13 @@ const TodayLink = styled(Link)`
     }
 `;
 
-const LoggedInView = props => {
-    return null;
-};
+const NavHeader = styled.ul`
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#333;
+`;
 
 class Header extends React.Component {
   render() {
@@ -37,12 +30,14 @@ class Header extends React.Component {
       <nav className="navbar navbar-light">
         <div className="container">
             {/* {this.props.appName.toLowerCase()} */}
-            <ul>
+            <NavHeader>
             <li>
-           
-            <TodayLink>Today</TodayLink>
+            <NavigationLink to = "/">Today</NavigationLink>
             </li>
-          </ul>
+            <li>
+              <NavigationLink to = "/month">Month</NavigationLink>
+            </li>
+          </NavHeader>
         </div>
       </nav>
     );
